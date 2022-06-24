@@ -1,16 +1,18 @@
-// import { initializeApp } from "firebase/app";
-// import { getFirestore } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "@firebase/firestore"
+import { getAuth } from 'firebase/auth'
+const firebaseConfig = {
+    apiKey: "AIzaSyA7t49Kv8XyUXO3OVTNNNJJw0LeJnDux9Q",
+    authDomain: "fir-learn-48869.firebaseapp.com",
+    projectId: "fir-learn-48869",
+    storageBucket: "fir-learn-48869.appspot.com",
+    messagingSenderId: "830502492982",
+    appId: "1:830502492982:web:83823ffffcdd3249cf3197",
+    measurementId: "G-WC0MXKJN8B"
+};
 
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDFh8BlfdeKH4hByG1argaSugxSM4aMs3k",
-//   authDomain: "authentication-9efe9.firebaseapp.com",
-//   projectId: "authentication-9efe9",
-//   storageBucket: "authentication-9efe9.appspot.com",
-//   messagingSenderId: "968031093599",
-//   appId: "1:968031093599:web:6c7e8d0342c55a9cc36cea",
-//   measurementId: "G-MDV0E3R66X"
-// };
+const app = initializeApp(firebaseConfig);
 
-// const app = initializeApp(firebaseConfig);
-// export const db= getFirestore(app);
+export const db = getFirestore(app)
 
+export const auth = getAuth(app)
