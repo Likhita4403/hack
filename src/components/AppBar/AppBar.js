@@ -17,18 +17,26 @@ import {Route,Routes,Link} from 'react-router-dom'
 import Home from '../Home/Home'
 import About from '../About/About'
 import Contact from '../Contact/Contact'
-import Login from '../Login/Login'
+import Register from '../Register/Register'
+import { auth } from '../../firebase_connect';
+import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
 
 const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Contact','Login'];
+const navItems = ['Home', 'About', 'Contact','Register'];
 
 function DrawerAppBar(props) {
+  const navigate = useNavigate();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+  const LogOut= async()=>{
+    await signOut(auth)
+
+  }
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
@@ -78,6 +86,7 @@ function DrawerAppBar(props) {
               </Button>
           </Link>
             ))}
+            <Button className='text-light' onClick={LogOut} >LOGOUT</Button>
           </Box>
         </Toolbar>
       </AppBar>
@@ -100,12 +109,7 @@ function DrawerAppBar(props) {
       </Box>
       <Box component="main" sx={{ p: 3 }}>
         <Toolbar />
-        <Routes>
-  <Route path='/Home' element={<Home/>}/>
-  <Route path='/Contact' element={<Contact/>}/>
-  <Route path='/Login' element={<Login/>}/>
-  <Route path='/About' element={<About/>}/>
-</Routes>
+        
       </Box>
      
     </Box>
