@@ -1,8 +1,11 @@
 import React from 'react'
-
+import Car from './Car'
+import Contact from '../Contact/Contact'
 function Home() {
   return (
-    <div>Home</div>
+    <div>
+      <Car/>
+    </div>
   )
 }
 
